@@ -1,0 +1,44 @@
+{
+  "$schema": "https://raw.githubusercontent.com/deeeeone/Anvil/main/docs/anvil-provider.schema.json",
+  "spec": 1,
+  "id": "zai-web",
+  "name": "Z.ai Chat (on device)",
+  "description": "GLM-5.3-Flash from chat.z.ai with a guest session, through zai-openai-proxy running on this Mac.",
+  "symbol": "z.circle",
+  "homepage": "https://github.com/deeeeone/anvil-provider-zai-proxy",
+  "type": "openai",
+  "baseURL": "http://127.0.0.1:39876/v1",
+  "server": {
+    "setup": [
+      "sh",
+      "setup.sh"
+    ],
+    "command": [
+      "sh",
+      "start.sh"
+    ],
+    "env": {
+      "PORT": "39876"
+    },
+    "ready": "http://127.0.0.1:39876/",
+    "startupTimeout": 120
+  },
+  "auth": {
+    "type": "none"
+  },
+  "body": {
+    "enable_thinking": false
+  },
+  "models": [
+    {
+      "id": "x-preview-l",
+      "name": "GLM-5.3-Flash",
+      "context": 128000
+    }
+  ],
+  "capabilities": {
+    "stop": false,
+    "streamUsage": false
+  },
+  "free": true
+}
