@@ -3,7 +3,7 @@
   "spec": 1,
   "id": "zai-web",
   "name": "Z.ai Chat (on device)",
-  "description": "GLM-5.3-Flash from chat.z.ai with a guest session, through zai-openai-proxy running on this Mac.",
+  "description": "GLM models from chat.z.ai through zai-openai-proxy running on this Mac, with your account session.",
   "symbol": "z.circle",
   "homepage": "https://github.com/deeeeone/anvil-provider-zai-proxy",
   "type": "openai",
@@ -24,7 +24,13 @@
     "startupTimeout": 120
   },
   "auth": {
-    "type": "none"
+    "type": "web",
+    "loginURL": "https://chat.z.ai/",
+    "domain": "z.ai",
+    "localStorage": [
+      "token"
+    ],
+    "manual": true
   },
   "body": {
     "enable_thinking": false
@@ -33,6 +39,14 @@
     {
       "id": "x-preview-l",
       "name": "GLM-5.3-Flash",
+      "context": 128000
+    },
+    {
+      "id": "glm-5.3",
+      "context": 128000
+    },
+    {
+      "id": "glm-5.2",
       "context": 128000
     }
   ],
